@@ -3,20 +3,41 @@
 //TODO add start button
 //add questions - done
 //TODOcode if a question is correct/incorrect and add/take points away - take away time
-//TODOadd a place for the score
+//TODO add a place for the score
 //TODO add a place to story initials
 
-//setting up variables
-var timerEl = document.querySelector(".timerCountDown");
+//declaring DOM variables
+var timerEl = document.querySelector("#timerCountDown");
 var startButton = document.querySelector(".startButton");
-var highScore = document.querySelector(".highScore");
+var highScore = document.querySelector("#highScore");
 var question = document.getElementById('question');
-var answers = document.querySelectorAll('.answer');
+var answers = Array.from(document.querySelectorAll('.answer'));
+var aEl = document.getElementById('a');
+var bEl = document.getElementById('a');
+var cEl = document.getElementById('a');
+var dEl = document.getElementById('a');
 
+//setting up timer
+var secondsLeft = 60;
+var timeLeft = 1;
+
+
+//declaring other variables
 var score = 0;
+var currentQuestions = {};
+var acceptingAnswers = true; //change var name later
+let questionCounter = 0; //change var name later
+var availableQuestions = []; //change var name later
+
+//creating constants for quiz/questions
+var correctPoints = 10;
+var totalQuestikons = 4;
+var correctAnswers = 0;
+var wrongAnswers = 0;
+var isQuizFinished = false;
 
 //Setting up Questions and Answers in an Object
-var questions = [
+var quizQuestions = [
     { 
         question: "Question 1",
         answer1: "Answer1",
@@ -49,4 +70,23 @@ var questions = [
         answer4: "Answer4",
         correct: 4
     }
-]
+];
+
+//function to start the quiz
+// for (var i = 0; i < questions.length; i++){
+//     var response = 
+// }
+
+
+/*function startQuiz () {
+    questionCounter = 0;
+    score = 0;
+    availableQuestions = [...questions];
+    getNextQuestion();
+}
+
+function getNextQuestion() {
+    questionCounter ++;
+    
+
+}*/
