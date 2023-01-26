@@ -17,6 +17,8 @@ var bEl = document.getElementById('a');
 var cEl = document.getElementById('a');
 var dEl = document.getElementById('a');
 
+
+
 //setting up timer
 var secondsLeft = 60;
 var timeLeft = 1;
@@ -40,37 +42,40 @@ var isQuizFinished = false;
 var quizQuestions = [
     { 
         question: "Question 1",
-        answer1: "Answer1",
-        answer2: "Answer2",
-        answer3: "Answer3",
-        answer4: "Answer4",
+        answerA: "Answer A",
+        answerB: "Answer B",
+        answerC: "Answer C",
+        answerD: "Answer D",
         correct: 1
     },
     { 
         question: "Question 2",
-        answer1: "Answer1",
-        answer2: "Answer2",
-        answer3: "Answer3",
-        answer4: "Answer4",
+        answerA: "Answer A",
+        answerB: "Answer B",
+        answerC: "Answer C",
+        answerD: "Answer D",
         correct: 2
     },
     { 
         question: "Question 3",
-        answer1: "Answer1",
-        answer2: "Answer2",
-        answer3: "Answer3",
-        answer4: "Answer4",
+        answerA: "Answer A",
+        answerB: "Answer B",
+        answerC: "Answer C",
+        answerD: "Answer D",
         correct: 3
     },
     { 
         question: "Question 4",
-        answer1: "Answer1",
-        answer2: "Answer2",
-        answer3: "Answer3",
-        answer4: "Answer4",
+        answerA: "Answer A",
+        answerB: "Answer B",
+        answerC: "Answer C",
+        answerD: "Answer D",
         correct: 4
     }
 ];
+
+var currentQuestionIndex = 0;
+var lastQuestionIndex = quizQuestions.length;
 
 //function to start the quiz
 // for (var i = 0; i < questions.length; i++){
@@ -90,3 +95,33 @@ function getNextQuestion() {
     
 
 }*/
+
+
+//function to load the questions
+
+function askQuestion() {
+    
+    //creates buttons for user
+    if (currentQuestionIndex===0) {
+
+        var optA = document.createElement("button");
+        optA.setAttribute("id", "A");
+        answerChoices.appendChild(optA);
+    
+        var optB = document.createElement("button");
+        optB.setAttribute("id", "B");
+        answerChoices.appendChild(optB);
+    
+        var optC = document.createElement("button");
+        optC.setAttribute("id", "C");
+        answerChoices.appendChild(optC);
+    
+        var optD = document.createElement("button");
+        optD.setAttribute("id", "D");
+        answerChoices.appendChild(optD);
+    }
+}
+
+
+//setting up event listener to answerChoices variable to check user choice
+answerChoices.addEventListener("click", checkAnswer);
