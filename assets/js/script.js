@@ -136,28 +136,37 @@ function getNextQuestion() {
 
 //function to load the questions
 
-function askQuestion() {
+function askQuestion(question) {
+    //loads the question to index.html
+    document.querySelector('#question').textContent = question.question;
+
+    // loads the answer choices
+    document.querySelector("#btn1").textContent = "a. " + question.answers[0].text
+    document.querySelector("#btn2").textContent = "b. " + question.answers[1].text
+    document.querySelector("#btn3").textContent = "c. " + question.answers[2].text
+    document.querySelector("#btn4").textContent = "d. " + question.answers[3].text
+}    
     
     //creates buttons for user
-    if (currentQuestionIndex===0) {
+//     if (currentQuestionIndex===0) {
 
-        var optA = document.createElement("button");
-        optA.setAttribute("id", "A");
-        answerChoices.appendChild(optA);
+//         var optA = document.createElement("button");
+//         optA.setAttribute("id", "A");
+//         answerChoices.appendChild(optA);
     
-        var optB = document.createElement("button");
-        optB.setAttribute("id", "B");
-        answerChoices.appendChild(optB);
+//         var optB = document.createElement("button");
+//         optB.setAttribute("id", "B");
+//         answerChoices.appendChild(optB);
     
-        var optC = document.createElement("button");
-        optC.setAttribute("id", "C");
-        answerChoices.appendChild(optC);
+//         var optC = document.createElement("button");
+//         optC.setAttribute("id", "C");
+//         answerChoices.appendChild(optC);
     
-        var optD = document.createElement("button");
-        optD.setAttribute("id", "D");
-        answerChoices.appendChild(optD);
-    }
-}
+//         var optD = document.createElement("button");
+//         optD.setAttribute("id", "D");
+//         answerChoices.appendChild(optD);
+//     }
+// }
 
 
 //setting up event listener to answerChoices variable to check user choice
