@@ -11,10 +11,7 @@
         <header>
             <img src="./assets/images/Smart-Cat.png" height="200px" alt="smart cat" />
             <h1>Coding Challenge</h1>
-            <div>
-                <button class="btn-start" id="startButton">Start</button>
-            </div>
-            <div class="timerCountDown"><h3>Timer:<span id="time">60</span></h3>
+            <div class="timerCountDown"><h3>Timer:<span id="time"> 60</span></h3>
             </div>
         </header>
     <main>
@@ -24,7 +21,18 @@
             </div>
         </aside>
         <section>
-            <div id="questions-container">
+            <div class="intro-container" id="intro">
+                <p>Answer as many questions as you can, as quickly as possible.
+                If you answer incorrectly, your time/score will be penalized. Good Luck!
+                </p>
+                <div>
+                    <button class="btn-start" id="startButton">Start</button>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class = "hide"id="questions-container">
                 <h2 id="question">Questions</h2>
                 <div id="answer">
                     <button class="btn" id="btn1">1. Answer</button>

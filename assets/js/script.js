@@ -1,7 +1,7 @@
 //TODO 
-//TODO add timer
-//TODO add start button
-//add questions - done
+//* done add timer
+//* done add start button
+//*add questions - done
 //TODOcode if a question is correct/incorrect and add/take points away - take away time
 //TODO add a place for the score
 //TODO add a place to story initials
@@ -13,27 +13,7 @@ var highScore = document.querySelector("#highScore");
 var questionContainer = document.getElementById('question-container');
 var questionEl = document.querySelector("#question");
 var answerBtn = document.querySelector('#answer');
-
-
-//setting up timer
-var secondsLeft = 60;
-var timeLeft = 1;
-var countDown = document.querySelector('#time');
-
-var secondsLeft = 60;
-var timer;
-    function timer(){
-        countDown.textContent = secondsLeft;
-        timer = setInterval(function() {
-            secondsLeft--;
-
-            if (secondsLeft === 0) {
-                clearInterval(timer);
-                alert("Out of time!");
-            }
-        }, 1000)
-    }
-
+var introEl = document.querySelector('.intro-container');
 
 //declaring other variables
 var score = 0;
@@ -48,6 +28,28 @@ var totalQuestions = 5;
 var correctAnswers = 0;
 var wrongAnswers = 0;
 var isQuizFinished = false;
+
+//setting up timer
+var timerCount = 60;
+var timeLeft = 1;
+var timerElement = document.querySelector('#time');
+
+var secondsLeft = 60;
+var timer;
+function timer(){
+    timerElement.textContent = timerCount;
+    timer = setInterval(function() {
+        timerCount--;
+
+        if (timerCount === 0) {
+            clearInterval(timer);
+            alert("Out of time!");
+        }
+    }, 1000)
+}
+
+//adding event listener to start button to begin quiz
+startButton.addEventListener('click', startQuiz)
 
 //Setting up Questions and Answers in an Object
 var quizQuestions = [
@@ -99,10 +101,20 @@ var quizQuestions = [
     }
 ];
 
-var currentQuestionIndex = 0;
-var lastQuestionIndex = quizQuestions.length;
+// var currentQuestionIndex = 0;
+// var lastQuestionIndex = quizQuestions.length;
 
 //function to start the quiz
+function startQuiz (){
+    //removes the intro element from quiz
+    startButton.remove();
+    introEl.remove();
+    //shows the questions
+    questionContainer.classList.remove('hide');
+    showQuestions();
+    timer();
+};
+
 // for (var i = 0; i < questions.length; i++){
 //     var response = 
 // }

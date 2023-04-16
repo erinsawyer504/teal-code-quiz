@@ -69,29 +69,11 @@ section {
     padding: 20px;
 }
 
-/* .side-container .weather-container {
-    max-width: 800px;
-    display: grid;
-    grid-template-columns: 200px 200px 200px;
-}
-
-.city-info {
-    font-size: 20px;
-} */
-
 .side {
     border-bottom: solid;
     border-color: var(--ltblue);
     margin-bottom: 15px
 }
-
-/* .forecast {
-    flex: 4;
-    padding: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-} */
 
 /* Styles the Form and form button */
 .form-label,
@@ -130,25 +112,27 @@ section {
     transform: translate(-1px, -1px);
 }
 
-/* Only shows once the getCIty() function runs */
-/* .cityInfoClass {
-    border-style: solid;
+.btn-start {
+    background-color: var(--medblue);
+    color: white;
+    font-size: 1.3rem;
+    text-decoration: none;
+    padding: 6px 5px;
+    width: 100px;
+    display: block;
+    margin: 15px 0;
     border-radius: 5px;
-    padding: 50px;
-    margin-bottom: 25px;
-    font-weight: bold;
-} */
+    border: none;
+    outline: none;
+    box-shadow: 3px 3px var(--dark);
+    transform: translate(-1px, -1px);
+}
 
-/* Only shows once the getForecast() function runs */
-/* .forecast-card-design {
-    background: var(--ltblue);
-    color: var(--darkblue);
-    flex: 1 0 0;
-    padding: 10px;
-    margin: 10px;
-    text-align: center;
-    border-style: solid;
-    border-width: 1px;
-    border-radius: 5px;
-    font-size: 15px;
-} */
+.timerCountDown {
+    padding-left: 200px;
+}
+
+/*for content to be hidden */
+.hide {
+    display:none;
+}
