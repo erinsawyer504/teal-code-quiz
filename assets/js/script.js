@@ -1,11 +1,3 @@
-//TODO 
-//* done add timer
-//* done add start button
-//*add questions - done
-//TODOcode if a question is correct/incorrect and add/take points away - take away time
-//TODO add a place for the score
-//TODO add a place to story initials
-
 //declaring DOM variables
 var timerEl = document.querySelector(".timerCountDown");
 var startButton = document.querySelector("#startButton");
@@ -14,6 +6,9 @@ var questionContainer = document.getElementById('questions-container');
 var questionEl = document.querySelector("#question");
 var answerBtn = document.querySelector('#answer');
 var introEl = document.querySelector('.intro-container');
+var scoreEl = document.querySelector('#score');
+var initialsInput = document.querySelector('#initials');
+var submitBtn = document.querySelector('#submit');
 
 //declaring other variables
 var score = 0;
@@ -33,6 +28,7 @@ var isQuizFinished = false;
 var timerCount = 60;
 var timeLeft = 1;
 var timerElement = document.querySelector('#time');
+var timer;
 
 var secondsLeft = 60;
 var timerInterval;
@@ -44,7 +40,9 @@ function startTimer(){
         if (timerCount === 0) {
             clearInterval(timerInterval);
             alert("Out of time!");
+            endQuiz();
         }
+        timerElement.textContent = timerCount;
     }, 1000)
 }
 
@@ -101,7 +99,6 @@ var quizQuestions = [
     }
 ];
 
-
 //function to start the quiz
 function startQuiz() {
     introEl.classList.add('hide');
@@ -111,7 +108,8 @@ function startQuiz() {
     timerCount = 60;
     setQuestions();
     startTimer();
-  }
+}
+
 
 
 function setQuestions() {
