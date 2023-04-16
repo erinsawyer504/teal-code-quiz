@@ -42,35 +42,41 @@ var isQuizFinished = false;
 var quizQuestions = [
     { 
         question: "Question 1",
-        answerA: "Answer A",
-        answerB: "Answer B",
-        answerC: "Answer C",
-        answerD: "Answer D",
-        correct: 1
+
+        answers: [
+            {text: "Answer1", correct: false},
+            {text: "Answer2", correct: false},
+            {text: "Answer3", correct: false},
+            {text: "Answer4", correct: false}
+        ]
     },
     { 
         question: "Question 2",
-        answerA: "Answer A",
-        answerB: "Answer B",
-        answerC: "Answer C",
-        answerD: "Answer D",
-        correct: 2
+        answers: [
+            {text: "Answer1", correct: false},
+            {text: "Answer2", correct: false},
+            {text: "Answer3", correct: false},
+            {text: "Answer4", correct: false}
+        ]
     },
     { 
         question: "Question 3",
-        answerA: "Answer A",
-        answerB: "Answer B",
-        answerC: "Answer C",
-        answerD: "Answer D",
-        correct: 3
+        answers: [
+            {text: "Answer1", correct: false},
+            {text: "Answer2", correct: false},
+            {text: "Answer3", correct: false},
+            {text: "Answer4", correct: false}
+        ]
     },
     { 
         question: "Question 4",
-        answerA: "Answer A",
-        answerB: "Answer B",
-        answerC: "Answer C",
-        answerD: "Answer D",
-        correct: 4
+        answers: [
+            {text: "Answer1", correct: false},
+            {text: "Answer2", correct: false},
+            {text: "Answer3", correct: false},
+            {text: "Answer4", correct: false}
+        ]
+       
     }
 ];
 
