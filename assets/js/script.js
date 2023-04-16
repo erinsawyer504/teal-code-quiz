@@ -7,21 +7,32 @@
 //TODO add a place to story initials
 
 //declaring DOM variables
-var timerEl = document.querySelector("#timerCountDown");
+var timerEl = document.querySelector(".timerCountDown");
 var startButton = document.querySelector("#startButton");
 var highScore = document.querySelector("#highScore");
-var question = document.getElementById('question-container');
-var answers = Array.from(document.querySelectorAll('.answer'));
-var aEl = document.getElementById('a');
-var bEl = document.getElementById('a');
-var cEl = document.getElementById('a');
-var dEl = document.getElementById('a');
-
+var questionContainer = document.getElementById('question-container');
+var questionEl = document.querySelector("#question");
+var answerBtn = document.querySelector('#answer');
 
 
 //setting up timer
 var secondsLeft = 60;
 var timeLeft = 1;
+var countDown = document.querySelector('#time');
+
+var secondsLeft = 60;
+var timer;
+    function timer(){
+        countDown.textContent = secondsLeft;
+        timer = setInterval(function() {
+            secondsLeft--;
+
+            if (secondsLeft === 0) {
+                clearInterval(timer);
+                alert("Out of time!");
+            }
+        }, 1000)
+    }
 
 
 //declaring other variables
@@ -32,8 +43,8 @@ let questionCounter = 0; //change var name later
 var availableQuestions = []; //change var name later
 
 //creating constants for quiz/questions
-var correctPoints = 10;
-var totalQuestikons = 4;
+var correctPoints = 20;
+var totalQuestions = 5;
 var correctAnswers = 0;
 var wrongAnswers = 0;
 var isQuizFinished = false;
