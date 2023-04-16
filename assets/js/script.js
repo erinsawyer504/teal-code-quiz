@@ -18,9 +18,9 @@ var introEl = document.querySelector('.intro-container');
 //declaring other variables
 var score = 0;
 var currentQuestions = {};
-var acceptingAnswers = true; //change var name later
-let questionCounter = 0; //change var name later
-var availableQuestions = []; //change var name later
+var acceptingAnswers = true;
+let questionCounter = 0;
+var availableQuestions = []; 
 
 //creating constants for quiz/questions
 var correctPoints = 20;
@@ -101,11 +101,6 @@ var quizQuestions = [
     }
 ];
 
-// var currentQuestionIndex = 0;
-// var lastQuestionIndex = quiz
-
-// var currentQuestionIndex = 0;
-// var lastQuestionIndex = quizQuestions.length;
 
 //function to start the quiz
 function startQuiz() {
@@ -117,25 +112,7 @@ function startQuiz() {
     setQuestions();
     startTimer();
   }
-  
 
-// for (var i = 0; i < questions.length; i++){
-//     var response = 
-// }
-
-
-/*function startQuiz () {
-    questionCounter = 0;
-    score = 0;
-    availableQuestions = [...questions];
-    getNextQuestion();
-}
-
-function getNextQuestion() {
-    questionCounter ++;
-    
-
-}*/
 
 function setQuestions() {
     availableQuestions = quizQuestions.sort(() => Math.random() - 0.5).slice(0, totalQuestions);
@@ -224,36 +201,3 @@ function setQuestions() {
 });
 }
 
-//function to load the questions
-
-// function askQuestion(question) {
-//     //loads the question to index.html
-//     document.querySelector('#question').textContent = question.question;
-
-//     // loads the answer choices
-//     document.querySelector("#btn1").textContent = "a. " + question.answers[0].text
-//     document.querySelector("#btn2").textContent = "b. " + question.answers[1].text
-//     document.querySelector("#btn3").textContent = "c. " + question.answers[2].text
-//     document.querySelector("#btn4").textContent = "d. " + question.answers[3].text
-// }    
-    
-    //creates buttons for user
-//     if (currentQuestionIndex===0) {
-
-//         var optA = document.createElement("button");
-//         optA.setAttribute("id", "A");
-//         answerChoices.appendChild(optA);
-    
-//         var optB = document.createElement("button");
-//         optB.setAttribute("id", "B");
-//         answerChoices.appendChild(optB);
-    
-//         var optC = document.createElement("button");
-//         optC.setAttribute("id", "C");
-//         answerChoices.appendChild(optC);
-    
-//         var optD = document.createElement("button");
-//         optD.setAttribute("id", "D");
-//         answerChoices.appendChild(optD);
-//     }
-// }
