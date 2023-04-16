@@ -8,9 +8,9 @@
 
 //declaring DOM variables
 var timerEl = document.querySelector("#timerCountDown");
-var startButton = document.querySelector(".startButton");
+var startButton = document.querySelector("#startButton");
 var highScore = document.querySelector("#highScore");
-var question = document.getElementById('question');
+var question = document.getElementById('question-container');
 var answers = Array.from(document.querySelectorAll('.answer'));
 var aEl = document.getElementById('a');
 var bEl = document.getElementById('a');
@@ -41,42 +41,50 @@ var isQuizFinished = false;
 //Setting up Questions and Answers in an Object
 var quizQuestions = [
     { 
-        question: "Question 1",
+        question: "Which tag is used to define an image in HTML?",
 
         answers: [
-            {text: "Answer1", correct: false},
-            {text: "Answer2", correct: false},
-            {text: "Answer3", correct: false},
-            {text: "Answer4", correct: false}
+            {text: "<img>", correct: true},
+            {text: "<picture>", correct: false},
+            {text: "<image>", correct: false},
+            {text: "<photo>", correct: false}
         ]
     },
     { 
-        question: "Question 2",
+        question: "Which property is used to change the background color of an element in CSS?",
         answers: [
-            {text: "Answer1", correct: false},
-            {text: "Answer2", correct: false},
-            {text: "Answer3", correct: false},
-            {text: "Answer4", correct: false}
+            {text: "color", correct: false},
+            {text: "font-family", correct: false},
+            {text: "background-color", correct: true},
+            {text: "border-color", correct: false}
         ]
     },
     { 
-        question: "Question 3",
+        question: "Which HTML tag is used to create a hyperlink?",
         answers: [
-            {text: "Answer1", correct: false},
-            {text: "Answer2", correct: false},
-            {text: "Answer3", correct: false},
-            {text: "Answer4", correct: false}
+            {text: "<a>", correct: true},
+            {text: "<link>", correct: false},
+            {text: "<href>", correct: false},
+            {text: "<url>", correct: false}
         ]
     },
     { 
-        question: "Question 4",
+        question: "Which CSS property is used to change the font size of text?",
         answers: [
-            {text: "Answer1", correct: false},
-            {text: "Answer2", correct: false},
-            {text: "Answer3", correct: false},
-            {text: "Answer4", correct: false}
+            {text: "font-style", correct: false},
+            {text: "font-family", correct: false},
+            {text: "font-size", correct: true},
+            {text: "text-size", correct: false}
         ]
-       
+    },
+    { 
+        question: "Which CSS property is used to add space between elements?",
+        answers: [
+            {text: "margin", correct: false},
+            {text: "padding", correct: true},
+            {text: "border", correct: false},
+            {text: "space", correct: false}
+        ]
     }
 ];
 
