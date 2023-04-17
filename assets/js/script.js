@@ -212,14 +212,14 @@ function saveHighScore(event) {
 
     localStorage.setItem('highScores', JSON.stringify(highScores));
 
-    const highScoreList = document.getElementById('highScoreList');
-    highScoreList.innerHTML = '';
+    // const highScoreList = document.getElementById('highScoreList');
+    // highScoreList.innerHTML = '';
 
-    highScores.forEach(highScores => {
-      const scoreItem = document.createElement('li');
-      scoreItem.textContent = `${highScores.initials}: ${highScores.score}`;
-      highScoreList.appendChild(scoreItem);
-    });
+    // highScores.forEach(highScores => {
+    //   const scoreItem = document.createElement('li');
+    //   scoreItem.textContent = `${highScores.initials}: ${highScores.score}`;
+    //   highScoreList.appendChild(scoreItem);
+    // });
 
     document.getElementById('highScoreForm').reset();
   
@@ -230,9 +230,20 @@ function saveHighScore(event) {
 
 
 function displayHighScore() {
-    var storedHighScore = localStorage.getItem("highScore");
-    if (storedHighScore !== null) {
-      highScoreEl.textContent = storedHighScore;
+    var storedHighScores = JSON.parse(localStorage.getItem("highScores")) || [];
+    if (storedHighScores !== null) {
+    //   highScoreEl.textContent = storedHighScores;
+    console.log("stored high score", storedHighScores)
+      const highScoreList = document.getElementById('highScoreList');
+    //   highScoreList.innerHTML = '';
+    highScoreList.innerHTML = 
+      storedHighScores.map(highScore => {
+        return `<li>${highScore.initials}-${highScore.score}</li>`
+        // const scoreItem = document.createElement('li');
+        // scoreItem.textContent = `${highScore.initials}: ${highScore.score}`;
+        // highScoreList.appendChild(scoreItem);
+      })
+      .join("");
     }
   }
   
