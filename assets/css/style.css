@@ -112,6 +112,10 @@ section {
     transform: translate(-1px, -1px);
 }
 
+.btn:hover{
+    background-color: var(--darkblue);
+}
+
 .btn-start {
     background-color: var(--medblue);
     color: white;
@@ -126,6 +130,10 @@ section {
     outline: none;
     box-shadow: 3px 3px var(--dark);
     transform: translate(-1px, -1px);
+}
+
+.btn-start:hover{
+    background-color: var(--darkblue);
 }
 
 .timerCountDown {
