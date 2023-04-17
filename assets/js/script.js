@@ -126,13 +126,16 @@ function incorrect (){
 }
 
 
+// This function sets up the quiz questions by randomly selecting a subset of questions,
 function setQuestions() {
+    // Randomly selects the questions
     availableQuestions = quizQuestions.sort(() => Math.random() - 0.5).slice(0, totalQuestions);
     questionCounter = 0;
     acceptingAnswers = true;
+    // Displays the first question
     showQuestion();
-}
-
+  }
+  
 function showQuestion() {
 if (questionCounter >= totalQuestions) {
     endQuiz();
@@ -186,16 +189,17 @@ setTimeout(() => {
 }, 1000);
 }
 
+//function to end Quiz and to hide the questions/answers, and show the high scores
 function endQuiz() {
     isQuizFinished = true;
     questionContainer.classList.add('hide');
-    // introEl.classList.remove('hide');
     submitScoreEl.classList.remove('hide');
     highScoreEl.classList.remove('hide');
     clearInterval(timerInterval);
     saveHighScore();
 }
 
+//function to save the user's high score
 function saveHighScore(event) {
     event.preventDefault();
 
@@ -203,8 +207,8 @@ function saveHighScore(event) {
     const initials = initialsInput.value;
     const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
     const scoreObject = {
-      initials,
-      score
+        initials,
+        score
     };
 
     highScores.push(scoreObject);
@@ -213,41 +217,27 @@ function saveHighScore(event) {
 
     localStorage.setItem('highScores', JSON.stringify(highScores));
     displayHighScore();
-    // const highScoreList = document.getElementById('highScoreList');
-    // highScoreList.innerHTML = '';
-
-    // highScores.forEach(highScores => {
-    //   const scoreItem = document.createElement('li');
-    //   scoreItem.textContent = `${highScores.initials}: ${highScores.score}`;
-    //   highScoreList.appendChild(scoreItem);
-    // });
-
     document.getElementById('highScoreForm').reset();
-  
+
     submitScoreEl.classList.add('hide'); // hide submit-score
-    introEl.classList.remove('hide');
+    introEl.classList.remove('hide');  //unhides the quiz intro
 }
 
-
-
+//displays all the high scores in a list
 function displayHighScore() {
     var storedHighScores = JSON.parse(localStorage.getItem("highScores")) || [];
     if (storedHighScores !== null) {
-    //   highScoreEl.textContent = storedHighScores;
     console.log("stored high score", storedHighScores)
-      const highScoreList = document.getElementById('highScoreList');
-    //   highScoreList.innerHTML = '';
+        const highScoreList = document.getElementById('highScoreList');
     highScoreList.innerHTML = 
-      storedHighScores.map(highScore => {
+        storedHighScores.map(highScore => {
         return `<li>${highScore.initials}-${highScore.score}</li>`
-        // const scoreItem = document.createElement('li');
-        // scoreItem.textContent = `${highScore.initials}: ${highScore.score}`;
-        // highScoreList.appendChild(scoreItem);
-      })
-      .join("");
+
+    })
+    .join("");
     }
-  }
-  
+}
+
 
 //loads local storage when page loads
 window.addEventListener("DOMContentLoaded", function(){
