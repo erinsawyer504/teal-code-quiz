@@ -17,9 +17,10 @@
     <main>
         <aside>
             <div id="highScore">
-                <p>place holder for view high scores</p>
-            </div>
+            <h2 class="hide">High Scores</h2>
+        </div>
         </aside>
+        
         <section>
             <div class="intro-container" id="intro">
                 <p>Answer as many questions as you can, as quickly as possible.
@@ -28,6 +29,14 @@
                 <div>
                     <button class="btn-start" id="startButton">Start</button>
                 </div>
+            </div>
+            <div class="hide" id="submit-score">
+                <ol id="highScoreList"></ol>
+                <form id="highScoreForm">
+                <label for="initialsInput">Enter your initials:</label>
+                <input type="text" id="initialsInput" name="initialsInput" required>
+                <button type="submit" class="btn">Submit</button>
+                </form>
             </div>
         </section>
 

@@ -10,6 +10,8 @@ var scoreEl = document.querySelector('#score');
 var initialsInput = document.querySelector('#initials');
 var submitBtn = document.querySelector('#submit');
 var feedback = document.querySelector('#feedback');
+var submitScoreEl = document.getElementById('submit-score');
+
 
 //declaring other variables
 var score = 0;
@@ -184,33 +186,69 @@ setTimeout(() => {
 }
 
 function endQuiz() {
-isQuizFinished = true;
-questionContainer.classList.add('hide');
-introEl.classList.remove('hide');
-clearInterval(timerInterval);
-saveHighScore();
+    isQuizFinished = true;
+    questionContainer.classList.add('hide');
+    introEl.classList.remove('hide');
+    submitScoreEl.classList.remove('hide');
+    highScoreEl.classList.remove('hide');
+    clearInterval(timerInterval);
+    saveHighScore();
 }
 
 
   //saving high score
-function saveHighScore() {
-const initials = prompt('Enter your initials:');
-const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
+// function saveHighScore() {
+// const initials = prompt('Enter your initials:');
+// const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
 
-const scoreObject = {
-    initials,
-    score
-};
+// const scoreObject = {
+//     initials,
+//     score
+// };
 
-highScores.push(scoreObject);
-highScores.sort((a, b) => b.score - a.score);
-highScores.splice(5);
+// highScores.push(scoreObject);
+// highScores.sort((a, b) => b.score - a.score);
+// highScores.splice(5);
 
-localStorage.setItem('highScores', JSON.stringify(highScores));
+// localStorage.setItem('highScores', JSON.stringify(highScores));
 
-highScoreEl.innerHTML = highScores;
-highScores.forEach(highScore => {
-    const scoreItem = document.createElement('li');
-});
+// highScoreEl.innerHTML = highScores;
+// highScores.forEach(highScore => {
+//     const scoreItem = document.createElement('li');
+// });
+// }
+function saveHighScore(event) {
+    event.preventDefault();
+
+    const initialsInput = document.getElementById('initialsInput');
+    const initials = initialsInput.value;
+    const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
+
+    const scoreObject = {
+      initials,
+      score
+    };
+
+    highScores.push(scoreObject);
+    highScores.sort((a, b) => b.score - a.score);
+    highScores.splice(5);
+
+    localStorage.setItem('highScores', JSON.stringify(highScores));
+
+    const highScoreList = document.getElementById('highScoreList');
+    highScoreList.innerHTML = '';
+
+    highScores.forEach(highScore => {
+      const scoreItem = document.createElement('li');
+      scoreItem.textContent = `${highScore.initials}: ${highScore.score}`;
+      highScoreList.appendChild(scoreItem);
+    });
+
+    document.getElementById('highScoreForm').reset();
+  
+    submitScoreEl.classList.add('hide'); // hide submit-score
 }
+
+  const highScoreForm = document.getElementById('highScoreForm');
+highScoreForm.addEventListener('submit', saveHighScore);
 
