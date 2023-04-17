@@ -174,7 +174,7 @@ function setQuestions() {
     isQuizFinished = true;
     questionContainer.classList.add('hide');
     introEl.classList.remove('hide');
-    clearInterval(timer);
+    clearInterval(timerInterval);
     saveHighScore();
   }
    
