@@ -1,7 +1,7 @@
 # teal-code-quiz
 
 ## Description
-This project is the innerworkings of a social media platform.  It uses Express.js, MongoDB, and Mongoose.  In this application, you can create/delete/update a user, add thoughts/reactions to posts, and add/delete friends. 
+This project uses javascript and local storage to create a coding quiz.  The user will answer the questions and then at the end, they can enter in their initials so their high score will display on the screen.  There is also a timer and the game will end if the timer reaches 0.  Also, if the player answers a question incorrectly, it deducts from from the timer. 
 
 ## Links
 - [github repo](https://github.com/erinsawyer504/teal-code-quiz)
