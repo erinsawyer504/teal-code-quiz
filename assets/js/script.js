@@ -105,6 +105,7 @@ var quizQuestions = [
 function startQuiz() {
     introEl.classList.add('hide');
     questionContainer.classList.remove('hide');
+    highScoreEl.classList.add('hide');
     score = 0;
     questionCounter = 0;
     timerCount = 60;
@@ -190,6 +191,7 @@ function endQuiz() {
     questionContainer.classList.add('hide');
     // introEl.classList.remove('hide');
     submitScoreEl.classList.remove('hide');
+    highScoreEl.classList.remove('hide');
     clearInterval(timerInterval);
     saveHighScore();
 }
@@ -200,7 +202,6 @@ function saveHighScore(event) {
     const initialsInput = document.getElementById('initialsInput');
     const initials = initialsInput.value;
     const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
-
     const scoreObject = {
       initials,
       score
@@ -211,7 +212,7 @@ function saveHighScore(event) {
     highScores.splice(5);
 
     localStorage.setItem('highScores', JSON.stringify(highScores));
-
+    displayHighScore();
     // const highScoreList = document.getElementById('highScoreList');
     // highScoreList.innerHTML = '';
 
