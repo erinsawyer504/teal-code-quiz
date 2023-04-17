@@ -188,35 +188,12 @@ setTimeout(() => {
 function endQuiz() {
     isQuizFinished = true;
     questionContainer.classList.add('hide');
-    introEl.classList.remove('hide');
+    // introEl.classList.remove('hide');
     submitScoreEl.classList.remove('hide');
-    highScoreEl.classList.remove('hide');
     clearInterval(timerInterval);
     saveHighScore();
 }
 
-
-  //saving high score
-// function saveHighScore() {
-// const initials = prompt('Enter your initials:');
-// const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
-
-// const scoreObject = {
-//     initials,
-//     score
-// };
-
-// highScores.push(scoreObject);
-// highScores.sort((a, b) => b.score - a.score);
-// highScores.splice(5);
-
-// localStorage.setItem('highScores', JSON.stringify(highScores));
-
-// highScoreEl.innerHTML = highScores;
-// highScores.forEach(highScore => {
-//     const scoreItem = document.createElement('li');
-// });
-// }
 function saveHighScore(event) {
     event.preventDefault();
 
@@ -238,17 +215,33 @@ function saveHighScore(event) {
     const highScoreList = document.getElementById('highScoreList');
     highScoreList.innerHTML = '';
 
-    highScores.forEach(highScore => {
+    highScores.forEach(highScores => {
       const scoreItem = document.createElement('li');
-      scoreItem.textContent = `${highScore.initials}: ${highScore.score}`;
+      scoreItem.textContent = `${highScores.initials}: ${highScores.score}`;
       highScoreList.appendChild(scoreItem);
     });
 
     document.getElementById('highScoreForm').reset();
   
     submitScoreEl.classList.add('hide'); // hide submit-score
+    introEl.classList.remove('hide');
 }
+
+
+
+function displayHighScore() {
+    var storedHighScore = localStorage.getItem("highScore");
+    if (storedHighScore !== null) {
+      highScoreEl.textContent = storedHighScore;
+    }
+  }
+  
+
+//loads local storage when page loads
+window.addEventListener("DOMContentLoaded", function(){
+    displayHighScore();
+    })
+
 
   const highScoreForm = document.getElementById('highScoreForm');
 highScoreForm.addEventListener('submit', saveHighScore);
-
